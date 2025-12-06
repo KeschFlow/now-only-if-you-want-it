@@ -1,501 +1,117 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOW – only if you want it 💯</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #ffffff;
-      background: #000000;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page-wrapper {
-      width: 100%;
-      min-height: 100%;
-    }
-
-    /* Hero Section */
-    .hero {
-      width: 100%;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, transparent 70%);
-      animation: pulse 8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.1); }
-    }
-
-    .hero-content {
-      max-width: 900px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800;
-      margin-bottom: 24px;
-      color: #ffffff;
-      text-shadow: 0 0 40px rgba(138, 43, 226, 0.6);
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.25rem, 3vw, 1.75rem);
-      font-weight: 600;
-      color: #ff4ff7;
-      margin-bottom: 32px;
-    }
-
-    .hero-text {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      line-height: 1.8;
-      color: #d0d0d0;
-      margin-bottom: 48px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .button-group {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 18px 40px;
-      font-size: clamp(1rem, 2vw, 1.125rem);
-      font-weight: 700;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-primary {
-      background: #8a2be2;
-      color: #ffffff;
-      box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
-    }
-
-    .btn-primary:hover {
-      background: #7a1fd2;
-      box-shadow: 0 6px 30px rgba(138, 43, 226, 0.6);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #ffffff;
-      border: 2px solid #8a2be2;
-    }
-
-    .btn-secondary:hover {
-      background: #8a2be2;
-      box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
-      transform: translateY(-2px);
-    }
-
-    /* Content Sections */
-    .section {
-      width: 100%;
-      padding: 80px 20px;
-      position: relative;
-    }
-
-    .section:nth-child(even) {
-      background: #0a0a0a;
-    }
-
-    .section-content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .section h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      margin-bottom: 32px;
-      color: #8a2be2;
-      position: relative;
-      padding-bottom: 16px;
-    }
-
-    .section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 80px;
-      height: 4px;
-      background: #8a2be2;
-      border-radius: 2px;
-    }
-
-    .section p {
-      font-size: clamp(1rem, 2vw, 1.125rem);
-      line-height: 1.8;
-      color: #d0d0d0;
-      margin-bottom: 24px;
-    }
-
-    .section ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .section li {
-      font-size: clamp(1rem, 2vw, 1.125rem);
-      line-height: 1.8;
-      color: #d0d0d0;
-      margin-bottom: 16px;
-      padding-left: 32px;
-      position: relative;
-    }
-
-    .section li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #8a2be2;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    /* Steps */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      margin-top: 48px;
-    }
-
-    .step {
-      background: #1a1a1a;
-      padding: 32px;
-      border-radius: 16px;
-      border: 2px solid #2a2a2a;
-      transition: all 0.3s ease;
-    }
-
-    .step:hover {
-      border-color: #8a2be2;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(138, 43, 226, 0.2);
-    }
-
-    .step h3 {
-      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-      font-weight: 700;
-      color: #8a2be2;
-      margin-bottom: 16px;
-    }
-
-    .step p {
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
-      color: #d0d0d0;
-      margin-bottom: 0;
-    }
-
-    .contact-options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 32px;
-    }
-
-    .contact-card {
-      background: #141414;
-      border-radius: 16px;
-      border: 1px solid #2a2a2a;
-      padding: 24px;
-    }
-
-    .contact-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-      color: #ffffff;
-    }
-
-    .contact-card p {
-      margin-bottom: 12px;
-    }
-
-    .contact-card a {
-      font-weight: 600;
-      color: #8a2be2;
-      text-decoration: underline;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 32px 20px;
-      font-size: 0.9rem;
-      color: #808080;
-      background: #050505;
-    }
-
-    .footer a {
-      color: #b0b0b0;
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        padding: 60px 20px;
-      }
-
-      .section {
-        padding: 60px 20px;
-      }
-
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .button-group {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 400px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>NOW – only if you want it 💯</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#000;color:#eee;line-height:1.7}
+section{padding:70px 20px}
+.container{max-width:900px;margin:auto}
+h1,h2,h3{color:#bb86ff}
+.hero{text-align:center;background:radial-gradient(circle at top,rgba(138,43,226,.25),transparent 60%),#000}
+.hero h1{font-size:3rem}
+.subtitle{color:#ff4dff;font-size:1.4rem}
+.btn{display:inline-block;padding:14px 32px;margin:10px;border-radius:40px;font-weight:700;text-decoration:none;color:#fff}
+.primary{background:#8a2be2}
+.secondary{border:2px solid #8a2be2}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.step{background:#111;padding:20px;border-radius:16px}
+.box{border:1px dashed #8a2be2;padding:20px;border-radius:14px;margin-top:20px}
+footer{text-align:center;color:#777;padding:30px}
+input,textarea{width:100%;padding:10px;margin:8px 0;background:#111;border:1px solid #333;color:#fff;border-radius:6px}
+button{padding:12px 24px;background:#8a2be2;color:#fff;border:none;border-radius:30px;font-weight:700;cursor:pointer}
+.alert{color:#ff9999;font-weight:700}
+</style>
 </head>
+
 <body>
-<div class="page-wrapper">
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>NOW – only if you want it 💯</h1>
-      <p class="hero-subtitle">Soforthilfe für Süchtige, die bereit sind, JETZT etwas zu ändern.</p>
-      <p class="hero-text">
-        Wenn du in der Sucht steckst und beschlossen hast: „Jetzt reicht's“, 
-        solltest du nicht an Formularen, Wartelisten und Genehmigungen scheitern.
-        NOW ist eine ehrliche, digitale Anlaufstelle für Menschen, die raus wollen –
-        ohne Bürokratie, ohne Warten, ohne Bullshit.
-      </p>
-      <div class="button-group">
-        <a href="#kontakt" class="btn btn-primary">Jetzt anonym melden</a>
-        <a href="#mithelfen" class="btn btn-secondary">Ich will unterstützen</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 1: Was ist NOW -->
-  <section class="section" id="was-ist-now">
-    <div class="section-content">
-      <h2>Was NOW ist – und was nicht</h2>
-      <p>NOW ist kein offizielles Therapiezentrum, keine Klinik und kein Behörden-Projekt.</p>
-      <p>
-        NOW ist eine unabhängige, digitale Anlaufstelle von Menschen mit echter Sucht-Erfahrung
-        für Menschen, die JETZT etwas ändern wollen.
-      </p>
-      <p>Hier geht es nicht um perfekte Lebensläufe, sondern um den Moment, in dem du ehrlich sagst: „Ich will raus.“</p>
-      <p>Nur dann funktioniert es. Only if you want it.</p>
-    </div>
-  </section>
-
-  <!-- Section 2: Ablauf -->
-  <section class="section" id="ablauf">
-    <div class="section-content">
-      <h2>Wie läuft das ab?</h2>
-      <div class="steps">
-        <div class="step">
-          <h3>Schritt 1 – Du entscheidest dich</h3>
-          <p>
-            Du musst nicht clean sein. Du musst nur ehrlich zu dir selbst sagen können:
-            „So kann es nicht weitergehen.“
-          </p>
-        </div>
-        <div class="step">
-          <h3>Schritt 2 – Du meldest dich</h3>
-          <p>
-            Du schreibst eine Nachricht. Anonym möglich. Du musst dich nicht erklären,
-            nicht rechtfertigen. Du sagst einfach, was Sache ist.
-          </p>
-        </div>
-        <div class="step">
-          <h3>Schritt 3 – Du bekommst echte Antwort</h3>
-          <p>
-            Du bekommst eine ehrliche Rückmeldung ohne Fachchinesisch und ohne Wegschieben.
-            Gemeinsam suchen wir den nächsten realistischen Schritt: Entgiftung, Reha,
-            Selbsthilfegruppe, Stabilisierung – oder erst mal deinen Kopf sortieren.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: Für wen -->
-  <section class="section" id="fuer-wen">
-    <div class="section-content">
-      <h2>Für wen ist NOW?</h2>
-      <p>NOW richtet sich an:</p>
-      <ul>
-        <li>Menschen, die süchtig sind und beschlossen haben, etwas zu ändern</li>
-        <li>Menschen, die vom System enttäuscht wurden und keine Kraft für Anträge und Warteschleifen haben</li>
-        <li>Angehörige, die nicht mehr zusehen können und einen ersten Ansprechpartner brauchen</li>
-        <li>Alle, die lieber mit jemandem reden, der die Hölle kennt, statt mit jemandem, der sie nur aus Büchern kennt</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Section 4: Warum -->
-  <section class="section" id="warum">
-    <div class="section-content">
-      <h2>Warum es NOW braucht</h2>
-      <p>
-        In der Theorie gibt es viele Angebote. In der Realität scheitern die meisten schon am ersten Schritt:
-        Arzttermin, Kostenzusage, Entgiftung, Reha-Antrag, Formulare, Fristen.
-      </p>
-      <p>
-        Wer mitten in der Sucht steckt, hat oft weder Nerven noch Energie für Bürokratie.
-        Genau da gehen Chancen verloren – manchmal fürs ganze Leben.
-      </p>
-      <p>
-        NOW setzt vorher an: Wir hören zu, bevor das System es tut. Wir nehmen dich ernst,
-        bevor dich jemand als Akte abheftet.
-      </p>
-    </div>
-  </section>
-
-  <!-- Section 5: Wer -->
-  <section class="section" id="wer">
-    <div class="section-content">
-      <h2>Wer hinter NOW steht</h2>
-      <p>
-        Hinter NOW steht jemand, der selbst viele Jahre mit verschiedenen Drogen zu tun hatte,
-        der Höhen und Tiefen kennt und weiß, wie sich Entzug, Rückfall, Scham, Hoffnung und Kampf wirklich anfühlen.
-      </p>
-      <p>Hier spricht niemand von oben herab. Kein Perfektions-Gelaber. Keine Moralkeule.</p>
-      <p>
-        Ziel ist simpel: einen Ort schaffen, an dem du ernst genommen wirst – egal in welchem Zustand
-        du gerade hier landest.
-      </p>
-    </div>
-  </section>
-
-  <!-- Section 6: Kontakt -->
-  <section class="section" id="kontakt">
-    <div class="section-content">
-      <h2>So erreichst du NOW</h2>
-      <p>
-        Wähle einfach den Weg, der sich für dich am wenigsten stressig anfühlt.
-        Du musst keinen echten Namen benutzen, wenn du nicht willst.
-      </p>
-
-      <div class="contact-options">
-
-        <div class="contact-card">
-          <h3>🔒 Anonyme E-Mail</h3>
-          <p>Du kannst dir z.B. eine neue Mailadresse nur für dieses Thema machen.</p>
-          <p>
-            <!-- HIER DEINE E-MAIL EINTRAGEN -->
-            <a href="mailto:HIER-DEINE-MAIL@beispiel.de?subject=NOW%20-%20Ich%20will%20etwas%20ändern">
-              E-Mail schreiben
-            </a>
-          </p>
-        </div>
-
-        <div class="contact-card">
-          <h3>💬 WhatsApp / Handy</h3>
-          <p>Wenn du lieber per Handy schreibst:</p>
-          <p>
-            <!-- HIER DEINE WHATSAPP-NUMMER IM FORMAT 49XXXXXXXXX EINTRAGEN -->
-            <a href="https://wa.me/49DEINEWHATSAPPNUMMER?text=NOW%20-%20Ich%20will%20etwas%20ändern">
-              Per WhatsApp schreiben
-            </a>
-          </p>
-        </div>
-
-        <div class="contact-card">
-          <h3>📨 Telegram / Social</h3>
-          <p>Falls du Telegram oder einen anderen Messenger nutzen willst:</p>
-          <p>
-            <!-- HIER OPTIONAL DEIN TELEGRAM-USER ODER SOCIAL-LINK -->
-            <a href="https://t.me/DEINTELEGRAMUSERNAME">
-              Über Telegram Kontakt aufnehmen
-            </a>
-          </p>
-        </div>
-
-      </div>
-
-      <p style="margin-top:32px; font-size:0.95rem; color:#aaaaaa;">
-        ⚠️ Wichtiger Hinweis: NOW ersetzt keinen Notarzt, keine Rettung und keinen psychiatrischen Notdienst.
-        Bei akuter Lebensgefahr geh bitte sofort in die Notaufnahme oder ruf den Notruf (112).
-      </p>
-    </div>
-  </section>
-
-  <!-- Section 7: Unterstützung -->
-  <section class="section" id="mithelfen">
-    <div class="section-content">
-      <h2>Du willst mithelfen?</h2>
-      <p>
-        Wenn du in Pflege, Medizin, Sozialarbeit oder Beratung arbeitest und Bock hast, Teil des Projekts zu werden – meld dich.
-        Wenn du selbst Sucht-Erfahrung hast und anderen helfen willst – meld dich.
-        Wenn du einfach glaubst, dass so ein Projekt wichtig ist – meld dich.
-      </p>
-      <p>
-        Nutze einfach einen der Kontaktwege oben und schreib in die erste Zeile deiner Nachricht:
-        <strong>„Ich will unterstützen“</strong>.
-      </p>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <p>NOW – only if you want it 💯 · unabhängige, private Initiative.</p>
-    <p style="margin-top:8px;">
-      Keine Therapie, kein Ersatz für medizinische oder psychologische Behandlung.
-    </p>
-  </footer>
-
+<section class="hero">
+<div class="container">
+<h1>NOW – only if you want it 💯</h1>
+<p class="subtitle">Soforthilfe für Süchtige, die JETZT etwas ändern wollen.</p>
+<p>Wenn du innerlich schon weißt: „So geht es nicht weiter“, dann bist du hier richtig. Keine Warteschleife. Keine Bürokratie. Nur DU und der erste ehrliche Schritt.</p>
+<a class="btn primary" href="mailto:EddieKeschflow@gmail.com?subject=NOW%20-%20Ich%20brauche%20Hilfe">Jetzt Hilfe holen</a>
+<a class="btn secondary" href="mailto:Schulze.kevin81@gmail.com?subject=NOW%20-%20Unterstützung">Ich will unterstützen</a>
 </div>
+</section>
+
+<section>
+<div class="container">
+<h2>Was NOW ist – und was nicht</h2>
+<p>NOW ist keine Klinik. Keine Behörde. Kein Therapiezentrum. NOW ist eine unabhängige Anlaufstelle von Menschen mit echter Sucht-Erfahrung für Menschen, die JETZT raus wollen.</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Wie es abläuft</h2>
+<div class="steps">
+<div class="step"><h3>1. Du entscheidest dich</h3><p>Du musst nicht clean sein. Nur ehrlich.</p></div>
+<div class="step"><h3>2. Du meldest dich</h3><p>Per Mail oder anonymem Formular.</p></div>
+<div class="step"><h3>3. Du bekommst echte Antwort</h3><p>Ohne Fachchinesisch. Ohne Urteil.</p></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Kontakt – direkt & anonym</h2>
+
+<div class="box">
+<form action="mailto:EddieKeschflow@gmail.com" method="post" enctype="text/plain">
+<input type="text" name="Name" placeholder="Name (freiwillig)">
+<textarea name="Nachricht" rows="6" placeholder="Schreib einfach, wie es dir geht..."></textarea>
+<button>Senden</button>
+</form>
+<p class="alert">Notfall? Wenn es brennt: RUF 112. Kein Stolz. Kein Zögern.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Wer hinter NOW steht</h2>
+<p>Ein Mensch mit echter Sucht-Vergangenheit. Kein Theoretiker. Keine Maske. Keine Show.</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>FAQ</h2>
+<p><b>Ist NOW kostenlos?</b> Ja.</p>
+<p><b>Muss ich clean sein?</b> Nein.</p>
+<p><b>Ist das anonym?</b> Ja.</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Erste 48 Stunden – Mini-Guide</h2>
+<ul>
+<li>Keine Alleingänge</li>
+<li>Kein Alkohol</li>
+<li>Schlafen, essen, trinken</li>
+<li>Kontakt halten</li>
+</ul>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Disclaimer</h2>
+<p class="alert">NOW ersetzt keine ärztliche oder therapeutische Behandlung. Keine Haftung. Du handelst eigenverantwortlich.</p>
+</div>
+</section>
+
+<footer>
+<p><b>NOW</b> – only if you want it 💯</p>
+</footer>
+
 </body>
 </html>
+
 
     </footer>
   </div>
