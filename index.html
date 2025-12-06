@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOW – only if you want it 💯</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #ffffff;
+      background: #000000;
+      overflow-x: hidden;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Hero Section */
+    .hero {
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        circle,
+        rgba(138, 43, 226, 0.18) 0%,
+        transparent 70%
+      );
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+      }
+    }
+
+    .hero-content {
+      max-width: 900px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: #ffffff;
+      text-shadow: 0 0 40px rgba(138, 43, 226, 0.4);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 600;
+      color: #8a2be2;
+      margin-bottom: 32px;
+    }
+
+    .hero-text {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.8;
+      color: #d0d0d0;
+      margin-bottom: 48px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 18px 40px;
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #8a2be2;
+      color: #ffffff;
+      box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: #7a1fd2;
+      box-shadow: 0 6px 30px rgba(138, 43, 226, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid #8a2be2;
+    }
+
+    .btn-secondary:hover {
+      background: #8a2be2;
+      box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Light path */
+    .light-path {
+      text-align: center;
+      margin: 48px 0;
+      opacity: 0.3;
+    }
+
+    .light-path svg {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+    }
+
+    /* Sections */
+    .section {
+      width: 100%;
+      padding: 80px 20px;
+      position: relative;
+      background: #000000;
+    }
+
+    .section:nth-of-type(even) {
+      background: #0a0a0a;
+    }
+
+    .section-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 32px;
+      color: #8a2be2;
+      position: relative;
+      padding-bottom: 16px;
+    }
+
+    .section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: #8a2be2;
+      border-radius: 2px;
+    }
+
+    .section p {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.8;
+      color: #d0d0d0;
+      margin-bottom: 24px;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section li {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.8;
+      color: #d0d0d0;
+      margin-bottom: 16px;
+      padding-left: 32px;
+      position: relative;
+    }
+
+    .section li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #8a2be2;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .step {
+      background: #1a1a1a;
+      padding: 32px;
+      border-radius: 16px;
+      border: 2px solid #2a2a2a;
+      transition: all 0.3s ease;
+    }
+
+    .step:hover {
+      border-color: #8a2be2;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(138, 43, 226, 0.2);
+    }
+
+    .step h3 {
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      color: #8a2be2;
+      margin-bottom: 16px;
+    }
+
+    .step p {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: #d0d0d0;
+      margin-bottom: 0;
+    }
+
+    /* Footer / Legal */
+    .footer {
+      padding: 40px 20px 30px;
+      background: #000000;
+      border-top: 1px solid #222222;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 0.85rem;
+      color: #808080;
+    }
+
+    .footer-inner a {
+      color: #a870ff;
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>NOW – only if you want it 💯</h1>
+        <p class="hero-subtitle">
+          Soforthilfe für Süchtige, die bereit sind, JETZT etwas zu ändern.
+        </p>
+        <p class="hero-text">
+          Wenn du in der Sucht steckst und beschlossen hast: „Jetzt reicht's“,
+          solltest du nicht an Formularen, Wartelisten und Genehmigungen
+          scheitern. Genau deshalb gibt es NOW: eine ehrliche, digitale
+          Anlaufstelle für Menschen, die raus wollen – ohne Bürokratie, ohne
+          Warten, ohne Bedingungen.
+        </p>
+        <div class="button-group">
+          <a
+            class="btn btn-primary"
+            href="mailto:now@yourdomain.de?subject=NOW%20-%20Ich%20brauche%20Hilfe&body=Schreib%20einfach%20frei%2C%20wie%20es%20dir%20geht.%20Du%20musst%20dich%20nicht%20rechtfertigen."
+          >
+            Jetzt Hilfe holen
+          </a>
+          <a
+            class="btn btn-secondary"
+            href="mailto:now@yourdomain.de?subject=NOW%20-%20Ich%20will%20unterstützen"
+          >
+            Ich will unterstützen
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Light path -->
+    <div class="light-path">
+      <svg viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#2a2a2a;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#8a2be2;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2a2a2a;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M 0 50 Q 150 20, 300 50 T 600 50"
+          stroke="url(#pathGradient)"
+          stroke-width="3"
+          fill="none"
+        />
+      </svg>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="section">
+      <div class="section-content">
+        <h2>Was NOW ist – und was nicht</h2>
+        <p>
+          NOW ist kein offizielles Therapiezentrum, keine Klinik und kein
+          Behörden-Projekt. NOW ist eine unabhängige, digitale Anlaufstelle von
+          Menschen mit echter Sucht-Erfahrung für Menschen, die JETZT etwas
+          ändern wollen.
+        </p>
+        <p>
+          Hier geht es nicht um perfekte Lebensläufe, sondern um den Moment, in
+          dem du ehrlich sagst: „Ich will raus.“
+        </p>
+        <p>Nur dann funktioniert es. Only if you want it.</p>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="section">
+      <div class="section-content">
+        <h2>Wie läuft das ab?</h2>
+        <div class="steps">
+          <div class="step">
+            <h3>Schritt 1 – Du entscheidest dich</h3>
+            <p>
+              Du musst nicht clean sein. Du musst nur ehrlich zu dir selbst
+              sagen können: „So kann es nicht weitergehen.“
+            </p>
+          </div>
+          <div class="step">
+            <h3>Schritt 2 – Du meldest dich</h3>
+            <p>
+              Du schreibst eine Nachricht. Anonym möglich. Du musst dich nicht
+              erklären, nicht rechtfertigen. Du sagst einfach, was Sache ist.
+            </p>
+          </div>
+          <div class="step">
+            <h3>Schritt 3 – Du bekommst echte Antwort</h3>
+            <p>
+              Du bekommst eine ehrliche, menschliche Rückmeldung. Kein
+              Fachchinesisch, kein Abschieben. Gemeinsam suchen wir den nächsten
+              realistischen Schritt: Entgiftung, Reha, Selbsthilfegruppe,
+              Stabilisierung oder erst einmal sortieren, was in deinem Kopf
+              abgeht.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="section">
+      <div class="section-content">
+        <h2>Für wen ist diese Anlaufstelle?</h2>
+        <p>NOW richtet sich an:</p>
+        <ul>
+          <li>
+            Menschen, die süchtig sind und beschlossen haben, etwas zu ändern
+          </li>
+          <li>
+            Menschen, die vom System enttäuscht wurden und keine Kraft mehr für
+            Anträge und Warteschleifen haben
+          </li>
+          <li>
+            Angehörige, die nicht mehr zusehen können und einen ersten
+            Ansprechpartner brauchen
+          </li>
+          <li>
+            Alle, die lieber mit jemandem reden, der die Hölle kennt, statt mit
+            jemandem, der sie nur aus Büchern kennt
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="section">
+      <div class="section-content">
+        <h2>Warum NOW existiert</h2>
+        <p>
+          In der Theorie gibt es viele Angebote. In der Realität scheitern viele
+          schon am ersten Schritt: Arzttermin, Kostenzusage, Entgiftung,
+          Reha-Antrag, zig Formulare.
+        </p>
+        <p>
+          Die Wahrheit: Wer mitten in der Sucht ist, hat oft weder Nerven noch
+          Energie für Bürokratie. Genau in diesen Momenten gehen Chancen
+          verloren – und Menschen rutschen noch tiefer ab.
+        </p>
+        <p>
+          NOW setzt genau dort an: Wir hören zu, bevor das System es tut. Wir
+          nehmen dich ernst, bevor irgendwelche Stellen dich in Akten
+          einsortieren.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="section">
+      <div class="section-content">
+        <h2>Wer hinter NOW steht</h2>
+        <p>
+          Hinter NOW steht jemand, der selbst viele Jahre mit verschiedenen
+          Drogen zu tun hatte, der Höhen und Tiefen kennt und weiß, wie sich
+          Entzug, Rückfall, Scham, Hoffnung und Kampf wirklich anfühlen.
+        </p>
+        <p>Hier spricht niemand von oben herab.</p>
+        <p>
+          Es geht nicht um ein sauberes Image, sondern um echte Erfahrung,
+          Ehrlichkeit und den Willen, anderen das zu geben, was er selbst oft
+          vermisst hat: einen Ort, an dem man ernst genommen wird, egal in
+          welchem Zustand man gerade ist.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="section">
+      <div class="section-content">
+        <h2>Du willst mithelfen?</h2>
+        <p>
+          Wenn du in Pflege, Medizin, Sozialarbeit oder Beratung arbeitest und
+          Lust hast, Teil dieses Projekts zu werden – melde dich. Wenn du selbst
+          Erfahrung mit Sucht hast und anderen helfen willst – melde dich. Wenn
+          du einfach glaubst, dass so ein Projekt wichtig ist und du
+          unterstützen möchtest – melde dich.
+        </p>
+        <p style="margin-top: 32px;">
+          <a
+            class="btn btn-primary"
+            href="mailto:now@yourdomain.de?subject=NOW%20-%20Unterstützung"
+          >
+            Kontakt aufnehmen
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>
+          Hinweis: NOW ersetzt keine medizinische Behandlung, Entgiftung oder
+          Therapie. Wir hören zu, teilen Erfahrung und helfen dir, die nächsten
+          Schritte zu finden.
+        </p>
+        <p style="margin-top: 8px;">
+          © NOW – only if you want it 💯
+        </p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
