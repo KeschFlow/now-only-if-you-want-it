@@ -2,765 +2,223 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>NOW – only if you want it 💯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="NOW – only if you want it 💯 • Eine ehrliche, unabhängige Anlaufstelle für Süchtige, die JETZT etwas ändern wollen – ohne Bürokratie, ohne Stuhlkreis, ohne Bullshit." />
+  <title>NOW – only if you want it 💯</title>
   <style>
-    :root {
-      --bg: #000000;
-      --bg-soft: #0b0b0b;
-      --card: #111111;
-      --card-soft: #171717;
-      --accent: #8a2be2;
-      --accent-soft: rgba(138, 43, 226, 0.35);
-      --text-main: #f5f5f5;
-      --text-soft: #cfcfcf;
-      --border-soft: #2a2a2a;
-      --danger: #ff4d4d;
-      --radius-lg: 18px;
-      --radius-xl: 28px;
-      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.7);
-      --max-width: 960px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: radial-gradient(circle at top, #1d102e 0, #000 45%, #000 100%);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .shell {
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 24px 16px 64px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.7;
     }
 
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 12px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      gap: 12px;
+      text-align: center;
+      padding: 60px 20px;
+      background: #000;
+      border-bottom: 2px solid #8a2be2;
     }
 
-    .logo-block {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #8a2be2 35%, #000000 78%);
-      box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .logo-mark::after {
-      content: "NOW";
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      font-weight: 800;
-      color: #000;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .brand-sub {
-      font-size: 0.8rem;
-      color: var(--text-soft);
-      opacity: 0.9;
-    }
-
-    .pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: var(--text-soft);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(12, 12, 12, 0.7);
-      backdrop-filter: blur(8px);
-    }
-
-    .pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #4ade80;
-      box-shadow: 0 0 12px #22c55e;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 32px;
-      margin-bottom: 40px;
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    .hero-main {
-      padding: 24px 22px 26px;
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top left, rgba(138, 43, 226, 0.3), transparent 55%),
-                  linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(8, 8, 8, 0.96));
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 10% 0, rgba(255, 255, 255, 0.07), transparent 60%),
-        radial-gradient(circle at 80% 120%, rgba(138, 43, 226, 0.18), transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #c4a3ff;
-      margin-bottom: 8px;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 4vw, 2.9rem);
-      line-height: 1.15;
-      margin-bottom: 12px;
-      text-shadow: 0 0 32px rgba(0, 0, 0, 0.8);
-    }
-
-    .hero-tagline {
-      font-size: 1.05rem;
-      color: var(--text-soft);
-      margin-bottom: 18px;
-      max-width: 480px;
-    }
-
-    .hero-core {
-      font-size: 0.95rem;
-      color: #e5e5e5;
-      margin-bottom: 18px;
-    }
-
-    .highlight {
-      color: #facc15;
-      font-weight: 600;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .btn {
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.18s ease-out;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #8a2be2, #c084fc);
-      color: #000;
-      box-shadow: 0 0 22px rgba(138, 43, 226, 0.8);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 32px rgba(192, 132, 252, 0.9);
-      filter: brightness(1.05);
-    }
-
-    .btn-ghost {
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(15, 15, 15, 0.85);
-      color: var(--text-soft);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent);
+    header h1 {
+      font-size: 48px;
+      font-weight: 900;
       color: #fff;
-      box-shadow: 0 0 18px rgba(138, 43, 226, 0.6);
+      text-shadow: 0 0 25px rgba(138,43,226,0.6);
     }
 
-    .hero-note {
-      margin-top: 14px;
-      font-size: 0.8rem;
-      color: var(--text-soft);
+    header p {
+      font-size: 22px;
+      color: #8a2be2;
+      margin-top: 10px;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 34px;
+      color: #8a2be2;
+      border-left: 6px solid #8a2be2;
+      padding-left: 16px;
+      margin-bottom: 20px;
+    }
+
+    p, li {
+      font-size: 18px;
       opacity: 0.9;
-    }
-
-    .hero-side {
-      padding: 18px 18px 20px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(145deg, var(--card), #050505);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .hero-chip {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #c4a3ff;
-    }
-
-    .hero-fact {
-      font-size: 0.86rem;
-      color: var(--text-soft);
-    }
-
-    .hero-quote {
-      font-size: 0.9rem;
-      color: #e5e5e5;
-      padding: 9px 12px;
-      border-left: 2px solid var(--accent);
-      background: rgba(12, 12, 12, 0.9);
-      border-radius: 0 10px 10px 0;
-    }
-
-    .hero-quote span {
-      display: block;
-      margin-top: 4px;
-      font-size: 0.8rem;
-      color: var(--text-soft);
-      opacity: 0.85;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    section {
-      border-radius: var(--radius-lg);
-      background: linear-gradient(145deg, var(--card), #050505);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 20px 18px 22px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65);
-    }
-
-    section.alt {
-      background: linear-gradient(145deg, #050505, var(--card-soft));
-    }
-
-    section h2 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    section h2 span {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: #c4a3ff;
-      text-transform: uppercase;
-    }
-
-    section p {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      margin-bottom: 8px;
-    }
-
-    section p:last-child {
-      margin-bottom: 0;
-    }
-
-    .accent-text {
-      color: var(--accent);
-      font-weight: 600;
     }
 
     ul {
-      list-style: none;
-      margin: 8px 0;
-      padding-left: 0;
+      padding-left: 20px;
     }
 
-    li {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      padding-left: 18px;
-      position: relative;
-      margin-bottom: 4px;
+    .highlight {
+      background: #111;
+      padding: 20px;
+      border-left: 5px solid #8a2be2;
+      margin: 25px 0;
+      border-radius: 6px;
     }
 
-    li::before {
-      content: "•";
-      position: absolute;
-      left: 4px;
-      top: 0;
-      color: var(--accent);
-      font-size: 1rem;
+    .cta-box {
+      text-align: center;
+      padding: 40px;
+      background: #111;
+      border: 2px solid #8a2be2;
+      border-radius: 10px;
+      margin: 60px auto;
+      max-width: 700px;
     }
 
-    .grid {
-      display: grid;
-      gap: 16px;
+    .cta-box h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #fff;
     }
 
-    @media (min-width: 840px) {
-      .grid.two {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    .cta-box a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: #8a2be2;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
-    .now-check-list li::before {
-      content: "❯";
-      font-size: 0.8rem;
-      top: 3px;
-    }
-
-    .tagline-small {
-      font-size: 0.8rem;
-      color: var(--text-soft);
-      opacity: 0.9;
-      margin-top: 4px;
+    .cta-box a:hover {
+      background: #6e22c0;
     }
 
     footer {
-      padding-top: 22px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      margin-top: 30px;
-      font-size: 0.78rem;
-      color: #777;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .footer-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .footer-pill {
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      background: rgba(10, 10, 10, 0.9);
-      font-size: 0.75rem;
-    }
-
-    a.footer-link {
-      text-decoration: none;
-      color: var(--text-soft);
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
-    }
-
-    .danger-text {
-      color: var(--danger);
-      font-weight: 500;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+      opacity: 0.4;
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <div class="shell">
-      <header>
-        <div class="logo-block">
-          <div class="logo-mark"></div>
-          <div class="brand-text">
-            <div class="brand-title">NOW – only if you want it 💯</div>
-            <div class="brand-sub">Ehrliche Anlaufstelle für Süchtige, die JETZT etwas ändern wollen.</div>
-          </div>
-        </div>
-        <div class="pill">
-          <span class="pill-dot"></span>
-          <span>Kein System. Kein Stuhlkreis. Kein Bullshit.</span>
-        </div>
-      </header>
 
-      <div class="hero">
-        <div class="hero-main">
-          <div class="hero-inner">
-            <div class="eyebrow">Soforthilfe statt Warteschleife</div>
-            <h1>Du musst nicht warten, bis das System dich ernst nimmt.</h1>
-            <p class="hero-tagline">
-              Wenn du mitten in der Sucht steckst und beschlossen hast:
-              <span class="highlight">„So geht’s nicht weiter“</span>,
-              solltest du nicht an Formularen, Anträgen und Wartezeiten scheitern.
-            </p>
-            <p class="hero-core">
-              <span class="accent-text">NOW</span> ist eine unabhängige, ehrliche Anlaufstelle für Menschen,
-              die raus wollen – ohne Bürokratie, ohne Scham, ohne Stuhlkreis.
-              Du musst nicht clean sein. Du musst nur ehrlich genug sein zu sagen:
-              <strong>„Ich will“.</strong>
-            </p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="mailto:keschflow@gmail.com?subject=NOW%20-%20Ich%20will%20was%20ändern">
-                Jetzt schreiben
-              </a>
-              <a class="btn btn-ghost" href="#now-check">
-                NOW-Check ansehen
-              </a>
-            </div>
-            <div class="hero-note">
-              Schreib, wie dir der Kopf steht: kurz, lang, durcheinander, drauf oder nüchtern.
-              Du musst nichts beweisen. Du musst nur ehrlich sein.
-            </div>
-          </div>
-        </div>
-        <aside class="hero-side">
-          <div class="hero-chip">Warum es NOW gibt</div>
-          <p class="hero-fact">
-            Das System wartet, bis du funktionierst.<br />
-            <span class="accent-text">NOW</span> fängt da an, wo du wirklich stehst.
-          </p>
-          <p class="hero-quote">
-            „Die Kuren wollen dich erst, wenn du ihnen keine Arbeit mehr machst.
-            Aber warum sollte man zur Kur fahren, wenn man den härtesten Teil –
-            den Entzug – schon alleine hinter sich hat?“
-            <span>– Haltung hinter NOW</span>
-          </p>
-          <p class="hero-fact">
-            <strong>Eddie</strong>, ein echter Hund mit echter Geschichte,
-            ist das Gesicht des Projekts. Der Mensch dahinter kennt Substanz,
-            Entzug, Rückfall, Scham und Kampf – nicht aus Büchern, sondern aus dem eigenen Leben.
-          </p>
-        </aside>
-      </div>
+<header>
+  <h1>NOW – only if you want it 💯</h1>
+  <p>Soforthilfe für Süchtige. Ohne Bürokratie. Ohne Warten. Ohne Bullshit.</p>
+</header>
 
-      <main>
-        <section>
-          <h2>Was NOW ist – und was nicht<br /><span>klar & ehrlich</span></h2>
-          <p>
-            <span class="accent-text">NOW</span> ist keine Klinik, kein Therapiezentrum, kein Behördenprojekt.
-            Es gibt hier:
-          </p>
-          <ul>
-            <li>keine Anträge, keine Formulare, keine Wartelisten,</li>
-            <li>keine Atteste, keine Rezepte, keine Krankenkassen-Codes,</li>
-            <li>keine Stuhlkreise mit Fremden, die alles wissen wollen.</li>
-          </ul>
-          <p>
-            <span class="accent-text">NOW</span> ist eine ehrliche Anlaufstelle von einem Menschen mit echter Sucht-Erfahrung
-            für Menschen, die JETZT etwas ändern wollen. Kein Coaching, kein Guru, kein Heilsversprechen –
-            sondern Klartext, Erfahrung, Richtung.
-          </p>
-          <p>
-            Wer hier landet, bekommt keine Diagnose, sondern eine Frage:
-            <strong>„Willst du wirklich – oder willst du nur reden?“</strong>
-          </p>
-        </section>
+<div class="section">
+  <h2>Was NOW ist – und was nicht</h2>
+  <p>
+    NOW ist eine unabhängige, ehrliche Anlaufstelle für Menschen in der Sucht,
+    die beschlossen haben: <b>„Jetzt reicht's.“</b><br>
+    Kein Papierkram. Keine Anträge. Keine Belehrungen.
+  </p>
+  <p>Nur Ehrlichkeit. Nur Wille. Only if you want it.</p>
+</div>
 
-        <section class="alt">
-          <h2>Deine Zeit ist heilig – keine rote Ampel mehr<br /><span>Schluss mit Warten</span></h2>
-          <p>
-            Stell dir eine rote Ampel vor: kein Auto weit und breit, du stehst und wartest.
-            Pure Zeitverschwendung. Genau so funktioniert das staatliche Suchtsystem:
-          </p>
-          <ul>
-            <li>Arzttermin,</li>
-            <li>Bescheinigung,</li>
-            <li>Kostenzusage,</li>
-            <li>Warten auf Entgiftung,</li>
-            <li>Reha-Antrag,</li>
-            <li>noch mehr Warten.</li>
-          </ul>
-          <p>
-            In dieser Zeit rutschen Menschen wieder ab. Nicht, weil sie schwach sind,
-            sondern weil das System sie im Leerlauf hält.
-          </p>
-          <p>
-            <span class="accent-text">NOW</span> klaut dir keine Lebenszeit.
-            Wenn du JETZT willst, reden wir JETZT – nicht, wenn alle Stempel gesammelt sind.
-          </p>
-        </section>
+<div class="section">
+  <h2>Wie NOW funktioniert</h2>
 
-        <section>
-          <h2>Komm, wie du bist<br /><span>nicht erst, wenn du „pflegeleicht“ bist</span></h2>
-          <p>
-            Viele Einrichtungen wollen dich erst dann, wenn du schon halb sauber bist.
-            „Kommen Sie wieder, wenn Sie entgiftet sind.“ – so verliert man Menschen.
-          </p>
-          <p>
-            <span class="accent-text">NOW</span> funktioniert anders:
-          </p>
-          <ul>
-            <li>Du darfst im Stoff sein.</li>
-            <li>Du darfst drei Tage wach sein.</li>
-            <li>Du darfst zittern, schwitzen, stolpern.</li>
-            <li>Du darfst klar sein oder komplett durch sein.</li>
-          </ul>
-          <p>
-            Denn viele reden gerade dann ehrlich, wenn die Maske runter ist.
-            <strong>Genau diese Ehrlichkeit ist der Startpunkt.</strong>
-          </p>
-          <p>
-            Hier geht es nicht darum, dass du funktionierst.
-            Hier geht es darum, dass du endlich sagst, wie es wirklich ist –
-            ohne Angst, ohne Akte, ohne Urteil.
-          </p>
-        </section>
-
-        <section class="alt">
-          <h2>Kein Stuhlkreis. Kein Seelenstriptease.<br /><span>Deine Sorgen gehören dir</span></h2>
-          <p>
-            Klassische Kuren lieben Stuhlkreise: fremde Menschen, runde Sätze,
-            Geschichten von früher, jeder packt alles aus.
-          </p>
-          <p>
-            <strong>Mal ehrlich:</strong> Nicht jeder will seine Kindheit
-            vor Fremden ausbreiten. Nicht jeder möchte seine dunkelsten Momente
-            mit Menschen teilen, die er nie wieder sieht.
-          </p>
-          <p>
-            <span class="accent-text">NOW</span> respektiert das.
-          </p>
-          <ul>
-            <li>Du musst deine Vergangenheit nicht vor Publikum sezieren.</li>
-            <li>Du musst niemandem etwas „beweisen“.</li>
-            <li>Du musst nicht alles erzählen, nur weil es „Teil des Programms“ ist.</li>
-          </ul>
-          <p>
-            Wir schauen nach vorn: Was willst du jetzt? Wo kannst du hin?
-            Welche eine Sache bringt dich ins Machen – statt ins ewige Erzählen?
-          </p>
-        </section>
-
-        <section>
-          <h2>Sucht funktioniert wie Essen<br /><span>„Bis es dir zum Hals rauskommt“</span></h2>
-          <p>
-            Eine ehrliche Sicht auf Sucht:
-          </p>
-          <p>
-            „Wenn mir etwas schmeckt, esse ich es zwei Wochen lang jeden Tag – bis ich es nicht mehr sehen kann.
-            Genau so war es mit Stoff.“
-          </p>
-          <p>
-            Sucht ist oft nichts anderes, als etwas, das sich kurzfristig gut anfühlt,
-            so lange zu übertreiben, bis es alles andere auffrisst.
-          </p>
-          <p>
-            Der Unterschied liegt nicht in der Substanz, sondern im Umgang:
-            <span class="accent-text">Die Dosis macht das Gift.</span>
-          </p>
-          <p>
-            UND: Es gibt Menschen, die trotz Druck eine Grenze haben:
-          </p>
-          <ul>
-            <li>„Wenn ich’s mir nicht leisten kann, nehme ich nichts.“</li>
-            <li>„Beschaffungskriminalität ist keine Option.“</li>
-            <li>„Ich riskiere nicht mein Leben und das Leben anderer für einen Rausch.“</li>
-          </ul>
-          <p>
-            <span class="accent-text">NOW</span> spricht genau mit denen,
-            die Verantwortung übernehmen wollen – ohne sich selbst zu belügen.
-          </p>
-        </section>
-
-        <section class="alt" id="now-check">
-          <h2>NOW-Check 💯<br /><span>only if you want it</span></h2>
-          <p>
-            Du musst keinen Fragebogen ausfüllen, keine 30 Felder anklicken.
-            Aber wenn du dir diese fünf Fragen ehrlich beantwortest,
-            weißt du, ob NOW für dich dran ist:
-          </p>
-          <ul class="now-check-list">
-            <li>Was ist der ehrliche Grund, warum du JETZT hier bist?</li>
-            <li>Auf einer Skala von 1–10: Wie sehr willst du für DICH raus aus der Sucht – nicht für andere?</li>
-            <li>Welche Substanz oder welches Verhalten hält dich am meisten fest?</li>
-            <li>Was gibt dir heute schon ein gutes Gefühl – selbst ohne Drogen, ohne Geld?</li>
-            <li>Was würdest du als erstes ändern, wenn du morgen wirklich neu anfangen könntest?</li>
-          </ul>
-          <p class="tagline-small">
-            Wenn du bei diesen Fragen merkst: „Ich will wirklich“ – dann schreib.
-          </p>
-          <p>
-            👉 <strong>Mail an:</strong>
-            <a href="mailto:keschflow@gmail.com?subject=NOW%20-%20Ich%20will%20was%20ändern" class="accent-text">
-              keschflow@gmail.com
-            </a>
-          </p>
-        </section>
-
-        <section>
-          <h2>Für wen NOW da ist<br /><span>und für wen nicht</span></h2>
-          <div class="grid two">
-            <div>
-              <p><strong>NOW ist für dich, wenn…</strong></p>
-              <ul>
-                <li>du ehrlich sagen kannst: „So geht es nicht weiter.“</li>
-                <li>du keine Lust mehr auf Bürokratie und Warterei hast.</li>
-                <li>du lieber machst, statt stundenlang im Kreis zu reden.</li>
-                <li>du Verantwortung übernehmen willst – in deinem Tempo.</li>
-                <li>du bereit bist, nach vorne zu schauen.</li>
-              </ul>
-            </div>
-            <div>
-              <p><strong>NOW ist NICHT für dich, wenn…</strong></p>
-              <ul>
-                <li>du nur einen Attest, einen Stempel oder einen Vorteil suchst.</li>
-                <li>du planst, andere Menschen zu schädigen, um an Stoff zu kommen.</li>
-                <li>du nur Bestätigung willst, aber nichts ändern möchtest.</li>
-                <li>du eine medizinische Behandlung erwartest – die gibt es hier nicht.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section class="alt">
-          <h2>Reichtum ist nicht Geld<br /><span>andere Definition von Erfolg</span></h2>
-          <p>
-            Viele sagen: „Ich will reich werden.“ – aber wissen nicht mal, was das heißen soll.
-          </p>
-          <p>
-            Die Haltung hinter <span class="accent-text">NOW</span> ist eine andere:
-          </p>
-          <p>
-            Reich ist, wer:
-          </p>
-          <ul>
-            <li>Menschen hat, die ihn lieben,</li>
-            <li>essen und trinken kann,</li>
-            <li>ein Dach über dem Kopf und Wärme hat,</li>
-            <li>etwas hat, das ihn erfüllt – auch ohne Geld.</li>
-          </ul>
-          <p>
-            Wenn du das hast und nicht mehr jeden Tag gegen dich selbst kämpfst,
-            bist du weiter als viele, die nur Kontostände jagen.
-          </p>
-        </section>
-
-        <section>
-          <h2>Mitmachen & unterstützen<br /><span>Pflege, Erfahrung, Reichweite</span></h2>
-          <p>
-            <span class="accent-text">NOW</span> ist am Anfang. Kein Verein, kein Träger, kein großes Budget.
-            Sondern ein ehrliches Projekt mit einer klaren Haltung.
-          </p>
-          <p>Du kannst unterstützen, wenn…</p>
-          <ul>
-            <li>du in Pflege, Medizin, Sozialarbeit oder Beratung arbeitest und das System kennst,</li>
-            <li>du selbst Sucht-Erfahrung hast und anderen ehrlich zur Seite stehen willst,</li>
-            <li>du Reichweite hast (Social Media, Musik, Öffentlichkeit) und findest, dass dieses Projekt wichtig ist.</li>
-          </ul>
-          <p>
-            👉 <strong>Kontakt für Unterstützung:</strong>
-            <a href="mailto:keschflow@gmail.com?subject=NOW%20-%20Unterstützung" class="accent-text">
-              keschflow@gmail.com
-            </a>
-          </p>
-        </section>
-
-        <section class="alt">
-          <h2>Wichtiger Hinweis<br /><span>kein Ersatz für Therapie</span></h2>
-          <p class="danger-text">
-            NOW ist keine medizinische, psychotherapeutische oder psychiatrische Behandlung.
-          </p>
-          <p>
-            Es werden keine Diagnosen gestellt, keine Medikamente empfohlen, keine rechtlichen Zusagen gemacht.
-            <span class="accent-text">NOW</span> ist ein ehrliches Gesprächs- und Orientierungsangebot von Mensch zu Mensch –
-            insbesondere von jemandem, der Sucht aus dem eigenen Leben kennt.
-          </p>
-          <p>
-            Wenn du akut suizidal bist, schwere Entzugserscheinungen hast oder in unmittelbarer Gefahr stehst:
-            wende dich bitte SOFORT an den Notruf (112), den ärztlichen Bereitschaftsdienst (116 117)
-            oder die nächstgelegene Notaufnahme.
-          </p>
-        </section>
-      </main>
-
-      <footer>
-        <div class="footer-row">
-          <div>NOW – only if you want it 💯</div>
-          <div class="footer-links">
-            <div class="footer-pill">Kontakt: <a class="footer-link" href="mailto:keschflow@gmail.com">keschflow@gmail.com</a></div>
-            <div class="footer-pill">Projekt-Phase: Aufbau</div>
-          </div>
-        </div>
-        <div>
-          Idee & Haltung: aufgewachsen mit Sucht, Systemfrust, klarer Sicht – und dem Willen,
-          etwas Besseres daraus zu machen.
-        </div>
-      </footer>
-    </div>
+  <div class="highlight">
+    <b>1. Du willst wirklich etwas ändern.</b><br>
+    Egal ob du drauf bist oder nüchtern. Entscheidung kommt zuerst.
   </div>
+
+    <div class="highlight">
+      <b>2. Du meldest dich – anonym möglich.</b><br>
+      Kein Rechtfertigen. Keine peinlichen Fragen. Nur Klartext.
+    </div>
+
+    <div class="highlight">
+      <b>3. Du bekommst echte Antwort.</b><br>
+      Nicht von jemandem, der aus Büchern redet. Sondern von jemandem,
+      der Sucht kennt – tief, echt, kompromisslos.
+    </div>
+</div>
+
+<div class="section">
+  <h2>Für wen NOW gedacht ist</h2>
+  <ul>
+    <li>Für Menschen, die JETZT rauswollen – nicht irgendwann.</li>
+    <li>Für Menschen, die das System aufgegeben hat.</li>
+    <li>Für Angehörige, die jemanden auffangen wollen.</li>
+    <li>Für Süchtige, die lieber mit Erfahrung reden statt mit Paragraphen.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Die NOW-Grundhaltung</h2>
+  <p>
+    💜 Die Dosis macht das Gift.<br>
+    💜 Was zählt, ist die Wahrheit. Keine Masken.<br>
+    💜 Nach vorne schauen – Vergangenheit ist nicht veränderbar.<br>
+    💜 Du brauchst etwas, das du liebst. Etwas, das dich zieht, nicht drückt.<br>
+    💜 Kein Mensch kommt komplett alleine klar – du musst jemanden haben.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Warum NOW wichtig ist</h2>
+  <p>
+    Die meisten Kuren sagen: „Komm wieder, wenn du clean bist.“  
+    <br><b>Aber genau DAS ist das Problem.</b><br><br>
+    Warum sollte jemand, der schon clean ist, noch in eine Kur?<br>
+    Warum muss jemand erst leiden, warten, kämpfen, nachweisen?<br>
+    Warum raubt man Süchtigen Zeit, die sie nicht haben?<br><br>
+
+    NOW dreht das System um:
+    <br><b>Du kommst so, wie du bist.</b><br>
+    Voll. Teilvoll. Kalt. Heiß. Egal.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Eddie – das Gesicht von NOW</h2>
+  <p>
+    Eddie ist unser Symbol: süchtig nach Bällen, lebensgefährlich stur,
+    unaufhaltsam, immer vorwärts.
+  </p>
+
+  <div class="highlight">
+    Beispiel: 12 Meter Klippe runterspringen hinter einem Ball her.  
+    Mit dem Ball im Maul im Wasser fast abgesoffen.  
+    Wieder hochklettern wollen.  
+    <br><br>
+    👉 **Eddie kennt Sucht. Eddie kennt Risiko. Eddie kennt Wille.**
+  </div>
+</div>
+
+<div class="section">
+  <h2>Kontakt & Hilfe JETZT</h2>
+  <p class="highlight">
+    Wenn du das hier liest und denkst:  
+    <b>„Ich muss was ändern…“</b><br>
+    dann ist genau JETZT der Moment.
+  </p>
+
+  <div class="cta-box">
+    <h3>Schreib uns anonym:</h3>
+    <p style="font-size:20px;">
+      <b>E-Mail:</b><br>
+      <span>EddieKeschflow@gmail.com</span><br>
+      <span>Keschflow@gmail.com</span>
+    </p>
+
+    <a href="mailto:EddieKeschflow@gmail.com">Jetzt Kontakt aufnehmen</a>
+  </div>
+</div>
+
+<footer>
+  NOW – only if you want it 💯  
+  <br>Independent Support Project – 2025
+</footer>
+
 </body>
 </html>
