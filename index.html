@@ -1,793 +1,240 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>NOW – only if you want it 💯</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NOW – only if you want it. Eine ehrliche, digitale Anlaufstelle für Menschen mit Sucht-Erfahrung, aufgebaut aus echter Erfahrung – mit Eddie als Symbol für Energie, Chaos und Neubeginn.">
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    :root {
-      --bg: #000000;
-      --bg-soft: #0a0a0a;
-      --card: #141414;
-      --border: #2a2a2a;
-      --primary: #8a2be2; /* Purpur */
-      --primary-soft: rgba(138, 43, 226, 0.25);
-      --text-main: #f5f5f5;
-      --text-soft: #c9c9c9;
-      --accent: #ffffff;
-      --danger: #ff4b4b;
-    }
-    html, body {
-      width: 100%;
-      min-height: 100%;
-      background: radial-gradient(circle at top, #111 0, #000 45%, #000 100%);
-      color: var(--text-main);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOW – only if you want it 💯</title>
+    <meta name="description" content="Digitale Anlaufstelle aus echter Erfahrung. Keine Klinik, keine Behörde. Nur für die, die wirklich wollen.">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #111111;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --accent-purple: #9d00ff;
+            --accent-glow: rgba(157, 0, 255, 0.4);
+            --danger: #ff3333;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-    /* Layout */
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 16px 20px 40px;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 10px 0 20px;
-    }
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .brand-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .brand-sub {
-      font-size: 0.85rem;
-      color: var(--text-soft);
-    }
-    .mini-tag {
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: #111;
-      border: 1px solid var(--border);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .mini-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--primary);
-      box-shadow: 0 0 12px var(--primary-soft);
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: flex-end;
-      font-size: 0.85rem;
-    }
-    .nav-link {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      color: var(--text-soft);
-      background: transparent;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-    .nav-link:hover {
-      border-color: var(--primary);
-      color: var(--accent);
-      background: rgba(138, 43, 226, 0.1);
-    }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-    /* Hero */
-    .hero {
-      margin-top: 10px;
-      margin-bottom: 32px;
-      padding: 22px 18px 24px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(circle at top left, rgba(138,43,226,0.20), transparent 55%),
-        linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,0,0,0.7));
-      box-shadow: 0 18px 45px rgba(0,0,0,0.7);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 26px;
-      align-items: center;
-    }
-    @media (max-width: 820px) {
-      .hero-grid {
-        grid-template-columns: minmax(0,1fr);
-      }
-    }
-    .hero-kicker {
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .hero-kicker span.line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, var(--primary-soft), transparent);
-    }
-    .hero-title {
-      font-size: clamp(2rem, 3.1vw, 2.6rem);
-      line-height: 1.15;
-      font-weight: 900;
-      margin-bottom: 10px;
-      text-wrap: balance;
-    }
-    .hero-title em {
-      color: var(--primary);
-      font-style: normal;
-    }
-    .hero-sub {
-      font-size: 0.98rem;
-      color: var(--text-soft);
-      max-width: 32rem;
-      margin-bottom: 16px;
-    }
-    .hero-tagline {
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(138,43,226,0.6);
-      background: rgba(0,0,0,0.4);
-      box-shadow: 0 0 22px rgba(138,43,226,0.25);
-      margin-bottom: 18px;
-    }
-    .hero-tagline span.pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--primary);
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .btn {
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      padding: 10px 18px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      transition: all 0.18s ease;
-    }
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 10px 26px rgba(138,43,226,0.55);
-    }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(138,43,226,0.75);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover {
-      border-color: var(--primary);
-      background: rgba(138,43,226,0.15);
-    }
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--text-soft);
-    }
+        /* HEADER */
+        header {
+            padding: 40px 0;
+            border-bottom: 1px solid #222;
+            margin-bottom: 40px;
+        }
 
-    /* Eddie Card */
-    .eddie-card {
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: radial-gradient(circle at top, rgba(255,255,255,0.08), rgba(0,0,0,0.9));
-      padding: 16px 14px 14px;
-      position: relative;
-      overflow: hidden;
-    }
-    .eddie-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .eddie-name {
-      font-weight: 700;
-      font-size: 0.96rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .eddie-tag {
-      font-size: 0.7rem;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.7);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .eddie-body {
-      font-size: 0.8rem;
-      color: var(--text-soft);
-      margin-bottom: 10px;
-    }
-    .eddie-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-    .eddie-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-    .badge {
-      font-size: 0.72rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(0,0,0,0.7);
-    }
-    .eddie-footer {
-      font-size: 0.72rem;
-      color: var(--text-soft);
-      opacity: 0.9;
-    }
-    .eddie-spot {
-      position: absolute;
-      inset: auto -15% -70%;
-      height: 140%;
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 60%),
-        radial-gradient(circle at center, rgba(138,43,226,0.36), transparent 70%);
-      opacity: 0.45;
-      pointer-events: none;
-      mix-blend-mode: screen;
-    }
-    .eddie-logo {
-      position: absolute;
-      bottom: 10px;
-      right: 12px;
-      font-size: 0.7rem;
-      text-align: right;
-      color: rgba(255,255,255,0.65);
-    }
-    .eddie-logo span {
-      display: block;
-      font-size: 0.65rem;
-    }
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
 
-    /* Sections */
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-    section {
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(0,0,0,0.78);
-      padding: 18px 16px 18px;
-      box-shadow: 0 10px 32px rgba(0,0,0,0.65);
-    }
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .section-title span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--primary);
-      box-shadow: 0 0 12px var(--primary-soft);
-    }
-    .section-kicker {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-soft);
-    }
-    .section-body {
-      font-size: 0.88rem;
-      color: var(--text-soft);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .section-body strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-    }
-    .pill {
-      font-size: 0.75rem;
-      padding: 3px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(0,0,0,0.7);
-    }
-    .list {
-      list-style: none;
-      margin-top: 2px;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .list li::before {
-      content: "• ";
-      color: var(--primary);
-    }
-    .list li {
-      font-size: 0.88rem;
-    }
+        .tagline {
+            color: var(--accent-purple);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
-      gap: 16px;
-      margin-top: 10px;
-    }
-    @media (max-width: 780px) {
-      .two-col {
-        grid-template-columns: minmax(0,1fr);
-      }
-    }
-    .note {
-      font-size: 0.76rem;
-      color: var(--text-soft);
-      margin-top: 8px;
-    }
-    .note-strong {
-      color: var(--danger);
-    }
+        /* CARDS & SECTIONS */
+        section {
+            margin-bottom: 50px;
+        }
 
-    /* Kontakt */
-    .contact-box {
-      display: grid;
-      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
-      gap: 14px;
-      margin-top: 12px;
-      font-size: 0.85rem;
-    }
-    @media (max-width: 740px) {
-      .contact-box {
-        grid-template-columns: minmax(0,1fr);
-      }
-    }
-    .contact-item {
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      padding: 10px 11px;
-      background: #050505;
-    }
-    .contact-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-soft);
-      margin-bottom: 4px;
-    }
-    .contact-email {
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
+        }
 
-    /* Footer */
-    footer {
-      margin-top: 26px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      font-size: 0.7rem;
-      color: var(--text-soft);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .footer-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .footer-links span {
-      cursor: default;
-    }
-    .sig {
-      font-size: 0.7rem;
-      opacity: 0.8;
-    }
-  </style>
+        .card:hover {
+            border-color: #333;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-purple);
+            padding-left: 15px;
+            color: #fff;
+        }
+
+        p { margin-bottom: 15px; color: #ccc; }
+        
+        ul { margin-left: 20px; margin-bottom: 20px; color: #ccc; }
+        li { margin-bottom: 8px; }
+
+        /* HERO CTA */
+        .hero-box {
+            background: linear-gradient(145deg, #1a0b2e 0%, #000 100%);
+            border: 1px solid var(--accent-purple);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-purple);
+            color: #fff;
+            padding: 15px 30px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 10px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #b300ff;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* EDDIE SECTION */
+        .eddie-badge {
+            background: #222;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* DISCLAIMER */
+        .disclaimer {
+            border: 1px solid var(--danger);
+            background: rgba(255, 51, 51, 0.05);
+            color: #ffcccc;
+            font-size: 0.9rem;
+        }
+        .danger-text { color: var(--danger); font-weight: bold; }
+
+        /* CONTACT LINKS */
+        a.mail-link {
+            color: var(--accent-purple);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        a.mail-link:hover { text-decoration: underline; color: #fff; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .card { padding: 20px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="page">
+
+<div class="container">
+
     <header>
-      <div class="brand">
-        <div class="brand-title">NOW</div>
-        <div class="brand-sub">only if you want it 💯</div>
-        <div class="mini-tag">
-          <span class="mini-dot"></span>
-          <span>Digitale Anlaufstelle aus echter Erfahrung</span>
-        </div>
-      </div>
-      <nav>
-        <a href="#was" class="nav-link">Was ist NOW?</a>
-        <a href="#wie" class="nav-link">Ablauf</a>
-        <a href="#wer" class="nav-link">Wer dahinter steht</a>
-        <a href="#eddie" class="nav-link">Eddie’s World</a>
-        <a href="#kontakt" class="nav-link">Kontakt</a>
-      </nav>
+        <div class="tagline">Only if you want it 💯</div>
+        <h1>NOW</h1>
+        <p style="color: var(--text-muted);">Digitale Anlaufstelle aus echter Erfahrung.</p>
     </header>
 
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="hero-kicker">
-            <span>Die Entscheidung zählt, nicht die Fassade</span>
-            <span class="line"></span>
-          </div>
-          <h1 class="hero-title">
-            <em>NOW</em> – eine Anlaufstelle für Süchtige,<br>die es wirklich <em>wollen</em>.
-          </h1>
-          <p class="hero-sub">
-            Keine Wartelisten, kein Schöngerede. Hier geht es um Menschen, die mitten in der Sucht stehen
-            und sagen: <strong>„So geht es nicht weiter.“</strong> Du musst nicht perfekt sein. Du musst nur ehrlich sein.
-          </p>
-          <div class="hero-tagline">
-            <span class="pill-dot"></span>
-            <span>Du musst nicht clean sein. Du musst es wollen.</span>
-          </div>
-          <div class="hero-actions">
-            <a href="#kontakt" class="btn btn-primary">Jetzt melden</a>
-            <a href="#wer" class="btn btn-outline">Wer dahinter steht</a>
-          </div>
-          <p class="hero-note">
-            Kein offizielles Therapiezentrum, keine Klinik. Ein ehrlicher Startpunkt – von Betroffenen für Betroffene.
-          </p>
-        </div>
-        <div class="eddie-card" id="eddie">
-          <div class="eddie-header">
-            <div class="eddie-name">
-              🐾 Eddie
-              <span class="eddie-tag">Maskottchen & Spiegel</span>
-            </div>
-          </div>
-          <div class="eddie-body">
-            <div class="eddie-label">Eddies World</div>
-            <p>
-              Eddie ist kein Therapiehund. Er ist ein Energie-Bündel:
-              süchtig nach Bällen, Sprüngen, Abenteuern – und genau deshalb
-              ein ehrliches Symbol für Sucht, Chaos und zweite Chancen.
-            </p>
-          </div>
-          <div class="eddie-badges">
-            <span class="badge">Ball-Addict</span>
-            <span class="badge">Abenteurer</span>
-            <span class="badge">Chaos Controller</span>
-            <span class="badge">Heartbreaker</span>
-          </div>
-          <p class="eddie-footer">
-            Seine Welt läuft auf TikTok & Co. – unsere Message dahinter: 
-            <strong>Wenn sogar ein kleiner Hund unaufhaltsam sein kann, kannst du es auch.</strong>
-          </p>
-          <div class="eddie-logo">
-            Eddie Keschflow
-            <span>Artwork & Story</span>
-          </div>
-          <div class="eddie-spot"></div>
-        </div>
-      </div>
+    <section class="card hero-box">
+        <h2>Die Entscheidung zählt. Nicht die Fassade.</h2>
+        <p><strong>NOW</strong> ist eine Anlaufstelle für Süchtige, die es wirklich wollen.</p>
+        <p>Keine Wartelisten, kein Schöngerede. Hier geht es um Menschen, die mitten in der Sucht stehen und sagen: „So geht es nicht weiter.“</p>
+        <ul>
+            <li>Du musst nicht clean sein.</li>
+            <li>Du musst nicht perfekt sein.</li>
+            <li>Du musst es nur ehrlich wollen.</li>
+        </ul>
+        <a href="mailto:nowonlyifyouwantit@kechflow.de?subject=Ich will raus" class="cta-button">Jetzt melden</a>
     </section>
 
-    <main>
-      <section id="was">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="dot"></span>
-            <span>Was NOW ist – und was nicht</span>
-          </div>
-          <div class="section-kicker">Klartext statt Broschüre</div>
-        </div>
-        <div class="section-body">
-          <p>
-            <strong>NOW</strong> ist eine unabhängige, digitale Anlaufstelle für Menschen mit Sucht-Themen.
-            Kein offizielles Therapiezentrum, keine Behörde, keine Klinik.
-          </p>
-          <p>
-            Hier geht es um genau den Moment, in dem du sagst:
-            <strong>„Ich kann so nicht weiter machen.“</strong>
-          </p>
-          <p>
-            Wir:
-          </p>
-          <ul class="list">
-            <li>hören zu, ohne dich zu verurteilen,</li>
-            <li>reden nicht von oben herab,</li>
-            <li>helfen dir, den <strong>nächsten realistischen Schritt</strong> zu finden.</li>
-          </ul>
-          <p class="pill-row">
-            <span class="pill">Kein Bullshit</span>
-            <span class="pill">Keine perfekten Lebensläufe</span>
-            <span class="pill">Nur echte Erfahrung</span>
-          </p>
-          <p class="note">
-            <span class="note-strong">Wichtig:</span> NOW ersetzt keine ärztliche Behandlung, Notaufnahme oder
-            staatlich anerkannte Therapie. Es ist ein zusätzlicher, ehrlicher Anlaufpunkt.
-          </p>
-        </div>
-      </section>
+    <section class="card disclaimer">
+        <p><span class="danger-text">WICHTIG:</span> In akuten Notfällen (Suizidgedanken, schwere körperliche Entzugserscheinungen) wende dich bitte sofort an <strong>Notruf 112</strong>, den ärztlichen Bereitschaftsdienst (116117) oder die nächste Notaufnahme.</p>
+        <p style="margin-bottom:0;">NOW ersetzt keine ärztliche Behandlung oder Therapie.</p>
+    </section>
 
-      <section id="wie">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="dot"></span>
-            <span>Wie läuft das ab?</span>
-          </div>
-          <div class="section-kicker">Drei einfache Schritte</div>
-        </div>
-        <div class="section-body">
-          <div class="two-col">
-            <div>
-              <p><strong>1. Du entscheidest dich.</strong></p>
-              <p>
-                Du musst nicht clean sein. Du musst nur ehrlich zu dir sagen können:
-                <strong>„So geht es nicht weiter.“</strong>
-              </p>
-              <p><strong>2. Du meldest dich.</strong></p>
-              <p>
-                Du schreibst eine Nachricht. Du musst dich nicht rechtfertigen,
-                kein Lebenslauf, kein offizielles Formular. Du sagst einfach, was Sache ist.
-              </p>
-              <p><strong>3. Du bekommst eine echte Antwort.</strong></p>
-              <p>
-                Kein Fachchinesisch, keine Standard-Mail. Eine menschliche Antwort
-                mit Optionen: Entgiftung anstoßen, Reha anvisieren, Selbsthilfe,
-                Struktur aufbauen – oder erst mal sortieren, was in deinem Kopf abgeht.
-              </p>
-            </div>
-            <div>
-              <p><strong>Was wir nicht versprechen:</strong></p>
-              <ul class="list">
-                <li>keine Wunderpillen,</li>
-                <li>keine „3-Tage-clean-und-alles-gut“-Lügen,</li>
-                <li>keine Garantie, dass du nie rückfällig wirst.</li>
-              </ul>
-              <p style="margin-top:6px;"><strong>Was wir ernst meinen:</strong></p>
-              <ul class="list">
-                <li>Wenn du es <strong>wirklich willst</strong>, bist du hier nicht allein.</li>
-                <li>Du darfst in jedem Zustand auftauchen – auch voll.</li>
-                <li>Es geht um Fortschritt, nicht um Perfektion.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+    <section class="card">
+        <h2>Wie läuft das ab?</h2>
+        <p><strong>1. Du entscheidest dich.</strong><br>
+        Du musst dir nur ehrlich sagen können: „Ich kann so nicht weitermachen.“</p>
+        
+        <p><strong>2. Du meldest dich.</strong><br>
+        Schreib eine Mail. Kein Lebenslauf, kein Formular. Sag einfach, was Sache ist.</p>
+        
+        <p><strong>3. Du bekommst eine echte Antwort.</strong><br>
+        Kein Bot, keine Standard-Mail. Eine menschliche Antwort mit Optionen für den nächsten realistischen Schritt.</p>
+    </section>
 
-      <section id="wer">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="dot"></span>
-            <span>Wer hinter NOW steht</span>
-          </div>
-          <div class="section-kicker">Keine Theorie – eigene Narben</div>
+    <section class="card">
+        <h2>Eddie’s World & Deine Welt</h2>
+        <p>Eddie ist mehr als „nur ein Hund“. Er ist Maskottchen und Spiegel.</p>
+        <div style="margin-bottom: 15px;">
+            <span class="eddie-badge">Ball-Junkie</span>
+            <span class="eddie-badge">Chaos-Controller</span>
+            <span class="eddie-badge">Kämpfer</span>
         </div>
-        <div class="section-body">
-          <p>
-            Hinter NOW steht jemand, der seit vielen Jahren mit verschiedenen Substanzen zu tun hatte –
-            der Entzug, Rückfall, Scham, Druck, Hoffnung und Wut nicht aus Büchern kennt,
-            sondern aus dem eigenen Leben.
-          </p>
-          <p>
-            Sätze wie:
-          </p>
-          <ul class="list">
-            <li><em>„Die Dosis macht das Gift.“</em></li>
-            <li><em>„Wenn ich kein Geld für Drogen habe, kann ich auch keine nehmen.“</em></li>
-            <li><em>„Alles, was ich will, hatte ich schon mal – also geht es jetzt um Sinn.“</em></li>
-          </ul>
-          <p>
-            sind keine Sprüche, sondern Realität, aus der dieses Projekt entstanden ist.
-          </p>
-          <p>
-            Es geht nicht darum, jemanden „gesellschaftsfähig“ zu machen. Es geht darum,
-            dass du nicht an einem System zerbrichst, das dich nur als Akte sieht.
-          </p>
-        </div>
-      </section>
+        <p>Er steht für Energie, Fokus und den Willen, immer weiterzumachen. Seine Botschaft: <strong>„Wir alle haben unsere Muster. Du musst dich nicht schämen. Du musst entscheiden.“</strong></p>
+    </section>
 
-      <section id="eddie">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="dot"></span>
-            <span>Eddie’s World & deine Welt</span>
-          </div>
-          <div class="section-kicker">Story statt Hochglanz</div>
-        </div>
-        <div class="section-body">
-          <p>
-            Eddie ist mehr als „nur ein Hund“. Er ist:
-          </p>
-          <ul class="list">
-            <li>Ball-Junkie, der für seinen Ball alles riskiert,</li>
-            <li>Abenteurer, der klippenspringt und Grenzen testet,</li>
-            <li>Heartbreaker, der trotzdem jede Seele weich macht.</li>
-          </ul>
-          <p>
-            Seine Clips und Bilder sind Unterhaltung –
-            aber sie tragen auch eine Botschaft:
-            <strong>Wir alle haben unsere Süchte, Muster und Trigger.</strong>
-          </p>
-          <p>
-            Eddie wird zum Gesicht einer Bewegung, die sagt:
-            <strong>„Du musst dich nicht schämen. Du musst entscheiden.“</strong>
-          </p>
-          <p class="note">
-            Du findest Eddie auf TikTok & Co. – die Plattformen können sich ändern,
-            die Message bleibt: <strong>NOW – only if you want it.</strong>
-          </p>
-        </div>
-      </section>
+    <section class="card">
+        <h2>Wer hinter NOW steht</h2>
+        <p>Hinter NOW steht jemand, der seit vielen Jahren mit verschiedenen Substanzen zu tun hatte. Jemand, der Entzug, Rückfall, Scham und Wut nicht aus Büchern kennt, sondern aus dem eigenen Leben.</p>
+        <ul>
+            <li>„Die Dosis macht das Gift.“</li>
+            <li>„Alles, was ich will, hatte ich schon mal – also geht es jetzt um Sinn.“</li>
+        </ul>
+        <p>Es geht nicht darum, dich „gesellschaftsfähig“ zu machen. Es geht darum, dass du nicht an einem System zerbrichst, das dich nur als Akte sieht.</p>
+    </section>
 
-      <section id="kontakt">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="dot"></span>
-            <span>Kontakt & Unterstützung</span>
-          </div>
-          <div class="section-kicker">Keine Formulare, nur Klartext</div>
-        </div>
-        <div class="section-body">
-          <p>
-            Wenn du schreiben willst, schreib. Kurz oder lang, egal in welchem Zustand.
-            Du musst dich nicht „gut verkaufen“. Schreib einfach ehrlich.
-          </p>
-          <div class="contact-box">
-            <div class="contact-item">
-              <div class="contact-label">Für Betroffene & Angehörige</div>
-              <div class="contact-email">
-                <a href="mailto:nowonlyifyouwantit@keschflow.de">nowonlyifyouwantit@keschflow.de</a>
-              </div>
-              <p class="note">
-                Stichwort in der Mail reicht, z.&nbsp;B. „Ich will raus“, „Angehöriger“, „Fragen“.
-              </p>
-            </div>
-            <div class="contact-item">
-              <div class="contact-label">Kooperation & Unterstützung</div>
-              <div class="contact-email">
-                <a href="mailto:keschflow@gmail.com">keschflow@gmail.com</a>
-              </div>
-              <p class="note">
-                Für Pflegekräfte, Ärzt:innen, Ex-User, Creator, Musiker, Vereine & Krankenkassen,
-                die das Projekt stärken wollen.
-              </p>
-            </div>
-          </div>
-          <p class="note">
-            <span class="note-strong">Hinweis:</span> In akuten Notfällen (Suizidgedanken, schwere körperliche Beschwerden)
-            wende dich bitte direkt an Notruf 112, den ärztlichen Bereitschaftsdienst oder die nächstgelegene Notaufnahme.
-            NOW kann das nicht ersetzen.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <div class="section-header">
-          <div class="section-title">
-            <span class="dot"></span>
-            <span>Grundprinzipien von NOW</span>
-          </div>
-          <div class="section-kicker">Kurz auf den Punkt</div>
-        </div>
-        <div class="section-body">
-          <p>Worum es bei NOW im Kern geht:</p>
-          <ul class="list">
-            <li>Die Dosis macht das Gift – nicht jeder Mensch ist gleich.</li>
-            <li>Das Problem ist nicht „die Substanz“, sondern, was sie dir ersetzt.</li>
-            <li>Wer wirklich will, braucht eine Chance – nicht eine Wand aus Bürokratie.</li>
-            <li>Niemand sollte an Formularen scheitern, wenn er gerade um sein Leben kämpft.</li>
-            <li>Niemand wird für seine Vergangenheit verurteilt – nur für die Entscheidung, nichts ändern zu wollen.</li>
-          </ul>
-        </div>
-      </section>
-    </main>
+    <section class="card" style="border-color: var(--accent-purple);">
+        <h2>Kontakt & Unterstützung</h2>
+        <p>Wenn du schreiben willst, schreib. Kurz oder lang. Egal in welchem Zustand.</p>
+        
+        <p style="margin-top: 20px; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">Für Betroffene & Angehörige:</p>
+        <a href="mailto:nowonlyifyouwantit@kechflow.de" class="mail-link">nowonlyifyouwantit@kechflow.de</a>
+        
+        <p style="margin-top: 30px; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">Kooperation & Support:</p>
+        <a href="mailto:keschflow@gmail.com" class="mail-link" style="color: #fff;">keschflow@gmail.com</a>
+    </section>
 
     <footer>
-      <div class="footer-top">
-        <div class="footer-links">
-          <span>NOW – only if you want it 💯</span>
-          <span>Projekt im Aufbau</span>
-          <span>Eddie’s World & Keschflow</span>
-        </div>
-        <div class="sig">
-          Konzept & Texte: Keschflow · Artwork: Eddie Keschflow
-        </div>
-      </div>
-      <div>
-        Kein medizinischer oder rechtlicher Ersatz. Offene, persönliche Initiative mit Fokus auf Erfahrung, Austausch und Motivation.
-      </div>
+        <p>NOW – only if you want it 💯<br>
+        Konzept & Texte: KeschFlow • Artwork: Eddie KeschFlow</p>
     </footer>
-  </div>
-</body>
-</html>
 
-    </footer>
-  </div>
+</div>
+
 </body>
 </html>
