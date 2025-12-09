@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOW – only if you want it 💯</title>
-    <meta name="description" content="Digitale Anlaufstelle aus echter Erfahrung. Keine Klinik, keine Behörde. Nur für die, die wirklich wollen.">
+    <meta name="description" content="NOW ist eine digitale Anlaufstelle aus echter Erfahrung. Keine Klinik, keine Behörde. Nur für die, die wirklich wollen.">
     <style>
         :root {
             --bg-color: #050505;
@@ -17,7 +17,11 @@
             --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         body {
             background-color: var(--bg-color);
@@ -56,7 +60,7 @@
         }
 
         /* CARDS & SECTIONS */
-        section {
+        main section {
             margin-bottom: 50px;
         }
 
@@ -66,7 +70,7 @@
             border-radius: 12px;
             border: 1px solid #222;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            transition: transform 0.2s ease;
+            transition: border-color 0.2s ease, transform 0.2s ease;
         }
 
         .card:hover {
@@ -81,10 +85,20 @@
             color: #fff;
         }
 
-        p { margin-bottom: 15px; color: #ccc; }
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
         
-        ul { margin-left: 20px; margin-bottom: 20px; color: #ccc; }
-        li { margin-bottom: 8px; }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
 
         /* HERO CTA */
         .hero-box {
@@ -103,7 +117,7 @@
             border-radius: 6px;
             margin-top: 10px;
             text-transform: uppercase;
-            transition: background 0.3s;
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         .cta-button:hover {
@@ -130,7 +144,11 @@
             color: #ffcccc;
             font-size: 0.9rem;
         }
-        .danger-text { color: var(--danger); font-weight: bold; }
+
+        .danger-text {
+            color: var(--danger);
+            font-weight: bold;
+        }
 
         /* CONTACT LINKS */
         a.mail-link {
@@ -139,7 +157,11 @@
             text-decoration: none;
             font-size: 1.1rem;
         }
-        a.mail-link:hover { text-decoration: underline; color: #fff; }
+
+        a.mail-link:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
 
         /* FOOTER */
         footer {
@@ -153,88 +175,128 @@
 
         /* RESPONSIVE */
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .card { padding: 20px; }
+            body {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-
     <header>
         <div class="tagline">Only if you want it 💯</div>
         <h1>NOW</h1>
         <p style="color: var(--text-muted);">Digitale Anlaufstelle aus echter Erfahrung.</p>
     </header>
 
-    <section class="card hero-box">
-        <h2>Die Entscheidung zählt. Nicht die Fassade.</h2>
-        <p><strong>NOW</strong> ist eine Anlaufstelle für Süchtige, die es wirklich wollen.</p>
-        <p>Keine Wartelisten, kein Schöngerede. Hier geht es um Menschen, die mitten in der Sucht stehen und sagen: „So geht es nicht weiter.“</p>
-        <ul>
-            <li>Du musst nicht clean sein.</li>
-            <li>Du musst nicht perfekt sein.</li>
-            <li>Du musst es nur ehrlich wollen.</li>
-        </ul>
-        <a href="mailto:nowonlyifyouwantit@kechflow.de?subject=Ich will raus" class="cta-button">Jetzt melden</a>
-    </section>
+    <main>
 
-    <section class="card disclaimer">
-        <p><span class="danger-text">WICHTIG:</span> In akuten Notfällen (Suizidgedanken, schwere körperliche Entzugserscheinungen) wende dich bitte sofort an <strong>Notruf 112</strong>, den ärztlichen Bereitschaftsdienst (116117) oder die nächste Notaufnahme.</p>
-        <p style="margin-bottom:0;">NOW ersetzt keine ärztliche Behandlung oder Therapie.</p>
-    </section>
+        <section class="card hero-box">
+            <h2>Die Entscheidung zählt. Nicht die Fassade.</h2>
+            <p><strong>NOW</strong> ist eine Anlaufstelle für Süchtige, die es wirklich wollen.</p>
+            <p>Keine Wartelisten, kein Schöngerede. Hier geht es um Menschen, die mitten in der Sucht stehen und sagen: „So geht es nicht weiter.“</p>
+            <ul>
+                <li>Du musst nicht clean sein.</li>
+                <li>Du musst nicht perfekt sein.</li>
+                <li>Du musst es nur ehrlich wollen.</li>
+            </ul>
+            <a href="mailto:nowonlyifyouwantit@kechflow.de?subject=Ich will raus" class="cta-button">Jetzt melden</a>
+        </section>
 
-    <section class="card">
-        <h2>Wie läuft das ab?</h2>
-        <p><strong>1. Du entscheidest dich.</strong><br>
-        Du musst dir nur ehrlich sagen können: „Ich kann so nicht weitermachen.“</p>
-        
-        <p><strong>2. Du meldest dich.</strong><br>
-        Schreib eine Mail. Kein Lebenslauf, kein Formular. Sag einfach, was Sache ist.</p>
-        
-        <p><strong>3. Du bekommst eine echte Antwort.</strong><br>
-        Kein Bot, keine Standard-Mail. Eine menschliche Antwort mit Optionen für den nächsten realistischen Schritt.</p>
-    </section>
+        <section class="card disclaimer">
+            <h2>Notfall & Grenzen von NOW</h2>
+            <p><span class="danger-text">WICHTIG:</span> In akuten Notfällen (Suizidgedanken, schwere körperliche Entzugserscheinungen) wende dich bitte sofort an <strong>Notruf 112</strong>, den ärztlichen Bereitschaftsdienst (116117) oder die nächste Notaufnahme.</p>
+            <p>NOW ersetzt keine ärztliche Behandlung, keine Psychotherapie und keine Entgiftung. Es ist eine ehrliche, unabhängige Anlaufstelle zur Orientierung.</p>
+        </section>
 
-    <section class="card">
-        <h2>Eddie’s World & Deine Welt</h2>
-        <p>Eddie ist mehr als „nur ein Hund“. Er ist Maskottchen und Spiegel.</p>
-        <div style="margin-bottom: 15px;">
-            <span class="eddie-badge">Ball-Junkie</span>
-            <span class="eddie-badge">Chaos-Controller</span>
-            <span class="eddie-badge">Kämpfer</span>
-        </div>
-        <p>Er steht für Energie, Fokus und den Willen, immer weiterzumachen. Seine Botschaft: <strong>„Wir alle haben unsere Muster. Du musst dich nicht schämen. Du musst entscheiden.“</strong></p>
-    </section>
+        <section class="card">
+            <h2>Was NOW ist – und was nicht</h2>
+            <p><strong>NOW ist:</strong></p>
+            <ul>
+                <li>eine digitale Anlaufstelle von jemandem mit echter Sucht-Erfahrung,</li>
+                <li>ein ehrlicher Spiegel ohne Schönreden und ohne Moralkeule,</li>
+                <li>ein Ort, an dem du sagen kannst, wie es wirklich ist – egal in welchem Zustand.</li>
+            </ul>
+            <p><strong>NOW ist nicht:</strong></p>
+            <ul>
+                <li>keine Klinik, keine Reha, kein offizielles Therapieangebot,</li>
+                <li>keine Behörde, keine Krankenkasse,</li>
+                <li>kein Ort für Diagnosen, Rezepte oder medizinische Entscheidungen.</li>
+            </ul>
+            <p>Hier geht es um Klarheit, nicht um Akten.</p>
+        </section>
 
-    <section class="card">
-        <h2>Wer hinter NOW steht</h2>
-        <p>Hinter NOW steht jemand, der seit vielen Jahren mit verschiedenen Substanzen zu tun hatte. Jemand, der Entzug, Rückfall, Scham und Wut nicht aus Büchern kennt, sondern aus dem eigenen Leben.</p>
-        <ul>
-            <li>„Die Dosis macht das Gift.“</li>
-            <li>„Alles, was ich will, hatte ich schon mal – also geht es jetzt um Sinn.“</li>
-        </ul>
-        <p>Es geht nicht darum, dich „gesellschaftsfähig“ zu machen. Es geht darum, dass du nicht an einem System zerbrichst, das dich nur als Akte sieht.</p>
-    </section>
+        <section class="card">
+            <h2>Wie läuft das ab?</h2>
+            <p><strong>1. Du entscheidest dich.</strong><br>
+            Du musst dir nur ehrlich sagen können: „Ich kann so nicht weitermachen.“</p>
+            
+            <p><strong>2. Du meldest dich.</strong><br>
+            Schreib eine Mail. Kein Lebenslauf, kein Formular. Sag einfach, was Sache ist.</p>
+            
+            <p><strong>3. Du bekommst eine echte Antwort.</strong><br>
+            Kein Standard-Text. Eine menschliche Antwort mit Optionen für den nächsten realistischen Schritt.</p>
+        </section>
 
-    <section class="card" style="border-color: var(--accent-purple);">
-        <h2>Kontakt & Unterstützung</h2>
-        <p>Wenn du schreiben willst, schreib. Kurz oder lang. Egal in welchem Zustand.</p>
-        
-        <p style="margin-top: 20px; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">Für Betroffene & Angehörige:</p>
-        <a href="mailto:nowonlyifyouwantit@kechflow.de" class="mail-link">nowonlyifyouwantit@kechflow.de</a>
-        
-        <p style="margin-top: 30px; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">Kooperation & Support:</p>
-        <a href="mailto:keschflow@gmail.com" class="mail-link" style="color: #fff;">keschflow@gmail.com</a>
-    </section>
+        <section class="card">
+            <h2>Eddie’s World & Deine Welt</h2>
+            <p>Eddie ist mehr als „nur ein Hund“. Er ist Maskottchen und Spiegel.</p>
+            <div style="margin-bottom: 15px;">
+                <span class="eddie-badge">Ball-Junkie</span>
+                <span class="eddie-badge">Chaos-Controller</span>
+                <span class="eddie-badge">Kämpfer</span>
+            </div>
+            <p>Er steht für Energie, Fokus und den Willen, immer weiterzumachen. Seine Botschaft:</p>
+            <p><strong>„Wir alle haben unsere Muster. Du musst dich nicht schämen. Du musst entscheiden.“</strong></p>
+        </section>
+
+        <section class="card">
+            <h2>Wer hinter NOW steht</h2>
+            <p>Hinter NOW steht jemand, der seit vielen Jahren mit verschiedenen Substanzen zu tun hatte. Jemand, der Entzug, Rückfall, Scham und Wut nicht aus Büchern kennt, sondern aus dem eigenen Leben.</p>
+            <ul>
+                <li>„Die Dosis macht das Gift.“</li>
+                <li>„Alles, was ich will, hatte ich schon mal – also geht es jetzt um Sinn.“</li>
+            </ul>
+            <p>Es geht nicht darum, dich „gesellschaftsfähig“ zu machen. Es geht darum, dass du nicht an einem System zerbrichst, das dich nur als Akte sieht.</p>
+        </section>
+
+        <section class="card" style="border-color: var(--accent-purple);">
+            <h2>Kontakt & Unterstützung</h2>
+            <p>Wenn du schreiben willst, schreib. Kurz oder lang. Egal in welchem Zustand.</p>
+            
+            <p style="margin-top: 20px; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">
+                Für Betroffene & Angehörige:
+            </p>
+            <a href="mailto:nowonlyifyouwantit@kechflow.de" class="mail-link">
+                nowonlyifyouwantit@kechflow.de
+            </a>
+            
+            <p style="margin-top: 30px; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">
+                Kooperation & Support:
+            </p>
+            <a href="mailto:keschflow@gmail.com" class="mail-link" style="color: #fff;">
+                keschflow@gmail.com
+            </a>
+        </section>
+
+    </main>
 
     <footer>
-        <p>NOW – only if you want it 💯<br>
-        Konzept & Texte: KeschFlow • Artwork: Eddie KeschFlow</p>
+        <p>
+            NOW – only if you want it 💯<br>
+            Konzept & Texte: KeschFlow • Eddie’s World
+        </p>
     </footer>
 
 </div>
 
 </body>
 </html>
+
